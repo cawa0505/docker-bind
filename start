@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-WEBMIN_ENABLED=${WEBMIN_ENABLED:-true}
+# WEBMIN_ENABLED=${WEBMIN_ENABLED:-true}
 
 chmod 775 /data
 
@@ -24,26 +24,26 @@ rm -rf /var/lib/bind
 ln -sf /data/bind/lib /var/lib/bind
 
 # create directory for webmin
-mkdir -p /data/webmin
+# mkdir -p /data/webmin
 
 # populate the default webmin configuration if it does not exist
-if [ ! -d /data/webmin/etc ]; then
-  mv /etc/webmin /data/webmin/etc
-fi
-rm -rf /etc/webmin
-ln -sf /data/webmin/etc /etc/webmin
+# if [ ! -d /data/webmin/etc ]; then
+#  mv /etc/webmin /data/webmin/etc
+# fi
+# rm -rf /etc/webmin
+# ln -sf /data/webmin/etc /etc/webmin
 
-if [ "${WEBMIN_ENABLED}" == "true" ]; then
-  if [ -z "${ROOT_PASSWORD}" ]; then
-    # generate a random password for root
-    ROOT_PASSWORD=$(pwgen -c -n -1 12)
-    echo User: root Password: $ROOT_PASSWORD
-  fi
-  echo "root:$ROOT_PASSWORD" | chpasswd
-
-  echo "Starting webmin..."
-  /etc/init.d/webmin start
-fi
+# if [ "${WEBMIN_ENABLED}" == "true" ]; then
+#  if [ -z "${ROOT_PASSWORD}" ]; then
+#    # generate a random password for root
+#    ROOT_PASSWORD=$(pwgen -c -n -1 12)
+#    echo User: root Password: $ROOT_PASSWORD
+#  fi
+#  echo "root:$ROOT_PASSWORD" | chpasswd
+#
+#  echo "Starting webmin..."
+#  /etc/init.d/webmin start
+# fi
 
 echo "Starting named..."
 mkdir -m 0775 -p /var/run/named

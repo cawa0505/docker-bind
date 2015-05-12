@@ -5,8 +5,8 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
  && apt-get install -y bind9 perl libnet-ssleay-perl openssl \
       libauthen-pam-perl libpam-runtime libio-pty-perl \
-      apt-show-versions python pwgen \
- && rm -rf /var/lib/apt/lists/* # 20150504
+      apt-show-versions \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get clean
 
