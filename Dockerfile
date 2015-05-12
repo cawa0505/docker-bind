@@ -1,5 +1,5 @@
-FROM sameersbn/ubuntu:14.04.20150504
-MAINTAINER sameer@damagehead.com
+FROM jimmyyen/ubuntu:latest
+MAINTAINER zeng.tw@gmail.com
 
 ENV WEBMIN_VERSION 1.740
 RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
