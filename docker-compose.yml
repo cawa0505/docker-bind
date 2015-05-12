@@ -1,9 +1,6 @@
 bind:
   image: jimmyyen/bind:latest
-  environment: 
-   - ROOT_PASSWORD=admin
   ports:
    - "53:53/udp"
-   - "21000:10000"
   volumes:
    - "/vagrant/bind:/data"
